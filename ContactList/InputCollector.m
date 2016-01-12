@@ -10,6 +10,15 @@
 
 @implementation InputCollector
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.listOfCommands = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 -(NSString *)inputForPrompt:(NSString *)promptString {
     char inputChoice[255];
     NSLog(@"\n%@", promptString);
@@ -18,15 +27,6 @@
     NSUInteger length = [userString length];
     userString = [userString substringToIndex:length - 1];
     return userString;
-}
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.listOfCommands = [[NSMutableArray alloc] init];
-    }
-    return self;
 }
 
 -(void)historyOfCommands:(NSString *)userOption {

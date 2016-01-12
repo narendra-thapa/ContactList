@@ -11,12 +11,13 @@
 @interface InputCollector : NSObject
 
 
--(NSString *)inputForPrompt:(NSString *)promptString;
 
-@property (nonatomic, strong) NSMutableArray *listOfCommands;
+@property (nonatomic, strong) NSMutableArray *listOfCommands;   // array to hold user commands
 
--(void)historyOfCommands:(NSString *)userOption;
+-(NSString *)inputForPrompt:(NSString *)promptString;           // method to ask user for input string
 
--(void)listHistoryOfCommands;
+-(void)historyOfCommands:(NSString *)userOption;                // method to store user commands
+
+-(void)listHistoryOfCommands;                                   // displays user commands history
 
 @end

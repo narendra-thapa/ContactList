@@ -10,6 +10,8 @@
 
 @interface Contact : NSObject
 
+// Declaring properties to hold contact information 
+
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *emailAddress;
 @property (nonatomic, strong) NSMutableDictionary *phoneBook;
