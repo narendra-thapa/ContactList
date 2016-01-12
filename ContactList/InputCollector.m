@@ -15,6 +15,8 @@
     NSLog(@"\n%@", promptString);
     fgets(inputChoice, 255, stdin);
     NSString *userString = [NSString stringWithUTF8String:inputChoice];
+    NSUInteger length = [userString length];
+    userString = [userString substringToIndex:length - 1];
     return userString;
 }
 @end

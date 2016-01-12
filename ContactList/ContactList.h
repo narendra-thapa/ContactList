@@ -18,4 +18,8 @@
 
 -(void)contactDetails;
 
+-(void)showOneContactDetails:(NSUInteger)position;
+
+-(void)showExistingContactDetails:(NSString *)searchString;
+
 @end
