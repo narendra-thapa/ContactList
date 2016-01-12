@@ -50,8 +50,16 @@ int main(int argc, const char * argv[]) {
                     Contact *ContactInfo = [[Contact alloc] init];
                     ContactInfo.name = inputNameString;
                     ContactInfo.emailAddress = inputEmailString;
-                    [savedContacts addContact:ContactInfo];
+                    
+                    // check if already exists
+                    BOOL alreadyExists = [savedContacts alreadyExists:ContactInfo.emailAddress];
+                    
+                    if (alreadyExists) {
+                        NSLog(@"Contact already exists");
+                    } else {
+                        [savedContacts addContact:ContactInfo];
                     }
+                }
                 else if ([selectedOption isEqualToString:@"list"])
                 {
                     [savedContacts contactDetails];

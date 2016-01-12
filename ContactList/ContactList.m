@@ -59,4 +59,22 @@
         NSLog(@"String not found");
     }
 }
+
+-(BOOL)alreadyExists:(NSString *)existsEmailAddress {
+    BOOL found = NO;
+    for (Contact *details in self.storedContactList) {
+        if ([[details.emailAddress lowercaseString] isEqualToString:[existsEmailAddress lowercaseString]]) {
+            found = YES;
+        }
+    }
+    return found;
+}
+
+
+
+
+
+
+
+
 @end

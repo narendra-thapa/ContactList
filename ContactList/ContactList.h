@@ -22,4 +22,6 @@
 
 -(void)showExistingContactDetails:(NSString *)searchString;
 
+-(BOOL)alreadyExists:(NSString *)existsEmailAddress;
+
 @end
