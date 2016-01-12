@@ -26,9 +26,14 @@
 
 -(void)contactDetails {
     int i = 0;
+    NSUInteger count = [self.storedContactList count];
+    if (count == 0) {
+        NSLog(@"The database is empty");
+    } else {
     for (Contact *details in self.storedContactList) {
         //NSLog(@"%d: %@ and %@", i, details.name, details.emailAddress);
         NSLog(@"%d: %@", i, details.name); i++;
+        }
     }
 }
 

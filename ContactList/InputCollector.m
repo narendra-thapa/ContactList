@@ -19,4 +19,25 @@
     userString = [userString substringToIndex:length - 1];
     return userString;
 }
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.listOfCommands = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+-(void)historyOfCommands:(NSString *)userOption {
+    [self.listOfCommands addObject:userOption];
+}
+
+-(void)listHistoryOfCommands {
+    NSUInteger count = [self.listOfCommands count];
+    NSLog(@"Number of commands entered: %lu", (unsigned long)count);
+    for (int i = 0; i < count; i++) {
+        NSLog(@"%@", self.listOfCommands[i]);
+    }
+}
 @end

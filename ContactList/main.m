@@ -13,20 +13,23 @@
 
 int main(int argc, const char * argv[]) {
     
-    NSArray *selectionOption = @[@"new", @"list", @"quit", @"show", @"find"];
+    NSArray *selectionOption = @[@"new", @"list", @"quit", @"show", @"find", @"history"];
     
     NSString *selectedOption = @"okay";
     
     ContactList *savedContacts = [[ContactList alloc] init];
+    InputCollector *menuDisplay = [[InputCollector alloc] init];
     
     // While loop checks for user option and exits when choosen
     while (![selectedOption  isEqualToString:@"quit"]) {
 
         // Asking user for action choice
-        InputCollector *menuDisplay = [[InputCollector alloc] init];
-        selectedOption = [menuDisplay inputForPrompt:@"\nWhat would you like to do next?\nnew - Create a new contact\nlist - List all contacts\nshow - Display one contact using index\nfind - Search using string\nquit - Exit\nApplication > "];
+        //InputCollector *menuDisplay = [[InputCollector alloc] init];
+        selectedOption = [menuDisplay inputForPrompt:@"\nWhat would you like to do next?\nnew - Create a new contact\nlist - List all contacts\nshow - Display one contact using index\nfind - Search using string\nhistory - Commands entered by user\nquit - Exit\nApplication > "];
         
         BOOL isPresent = [selectionOption containsObject:selectedOption];
+        
+        [menuDisplay historyOfCommands:selectedOption];
         
         if ([selectedOption isEqualToString:@"quit"]) {
             
@@ -66,6 +69,8 @@ int main(int argc, const char * argv[]) {
                     InputCollector *findString = [[InputCollector alloc] init];
                     NSString *inputSearchString = [findString inputForPrompt:@"Enter the search string: "];
                     [savedContacts showExistingContactDetails:inputSearchString];
+                } else if ([selectedOption isEqualToString:@"history"]) {
+                    [menuDisplay listHistoryOfCommands];
                 }
         }
         else {

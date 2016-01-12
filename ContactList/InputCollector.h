@@ -13,5 +13,10 @@
 
 -(NSString *)inputForPrompt:(NSString *)promptString;
 
+@property (nonatomic, strong) NSMutableArray *listOfCommands;
+
+-(void)historyOfCommands:(NSString *)userOption;
+
+-(void)listHistoryOfCommands;
 
 @end
