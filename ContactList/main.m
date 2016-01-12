@@ -91,7 +91,7 @@ int main(int argc, const char * argv[]) {
                     NSString *inputSearchString = [findString inputForPrompt:@"Enter the search string: "];
                     [savedContacts showExistingContactDetails:inputSearchString];
                 }
-                else if ([selectedOption isEqualToString:@"history"])
+                else if ([selectedOption isEqualToString:@"history"])       // list the commands history entered by the user
                 {
                     [menuDisplay listHistoryOfCommands];
                 }
