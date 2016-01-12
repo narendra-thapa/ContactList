@@ -10,4 +10,13 @@
 
 @implementation Contact
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.phoneBook = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
 @end

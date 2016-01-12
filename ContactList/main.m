@@ -57,8 +57,21 @@ int main(int argc, const char * argv[]) {
                     if (alreadyExists) {
                         NSLog(@"Contact already exists");
                     } else {
-                        [savedContacts addContact:ContactInfo];
+                        NSString *more = @"y";
+                        
+                        while (![more isEqualToString:@"n"]) {
+                        
+                        more = [newContact inputForPrompt:@"Do you wish to enter a phone number(y/n)? "];
+                            if ([more isEqualToString:@"y"]) {
+                        NSString *inputPhoneLabelString = [newContact inputForPrompt:@"Enter your phone number label (home, work, mobile, etc): "];
+                        NSString *inputPhoneNumberString = [newContact inputForPrompt:@"Please enter phone number as 123-456-7890"];
+                        [ContactInfo.phoneBook setValue:inputPhoneNumberString forKey:inputPhoneLabelString];
+                            }
+                        }
+                         [savedContacts addContact:ContactInfo];
                     }
+                    
+                    
                 }
                 else if ([selectedOption isEqualToString:@"list"])
                 {

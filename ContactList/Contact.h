@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *emailAddress;
-@property (nonatomic, strong) NSMutableArray *phoneNumber;
+@property (nonatomic, strong) NSMutableDictionary *phoneBook;
 
 @end

@@ -41,7 +41,7 @@
     NSUInteger count = [self.storedContactList count];
     if (position < count) {
     Contact *OneContact = self.storedContactList[position];
-    NSLog(@"%@ %@", OneContact.name, OneContact.emailAddress);
+    NSLog(@"%@ %@ %@", OneContact.name, OneContact.emailAddress, OneContact.phoneBook);
     } else {
         NSLog(@"Index value not found in database");
     }
