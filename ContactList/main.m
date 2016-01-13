@@ -13,7 +13,7 @@
 
 int main(int argc, const char * argv[]) {
     
-    NSArray *selectionOption = @[@"new", @"list", @"quit", @"show", @"find", @"history"];
+    NSArray *selectionOption = @[@"new", @"list", @"quit", @"show", @"find", @"history", @"edit"];
     
     NSString *selectedOption = @"okay";
     
@@ -24,7 +24,7 @@ int main(int argc, const char * argv[]) {
     while (![selectedOption  isEqualToString:@"quit"]) {
 
         // Asking user for action choice
-        selectedOption = [menuDisplay inputForPrompt:@"\nWhat would you like to do next?\nnew - Create a new contact\nlist - List all contacts\nshow - Display one contact using index\nfind - Search using string\nhistory - Commands entered by user\nquit - Exit\nApplication > "];
+        selectedOption = [menuDisplay inputForPrompt:@"\nWhat would you like to do next?\nnew - Create a new contact\nlist - List all contacts\nshow - Display one contact using index\nfind - Search using string\nedit - Edit an entry\nhistory - Commands entered by user\nquit - Exit\nApplication > "];
         
         BOOL isPresent = [selectionOption containsObject:selectedOption];
         
@@ -81,9 +81,17 @@ int main(int argc, const char * argv[]) {
                 {
                     InputCollector *showString = [[InputCollector alloc] init];
                     NSString *inputNum = [showString inputForPrompt:@"Please enter index of contact: "];
-                    
                     NSUInteger num = [inputNum intValue];                   // Converting user input to integer
+                    
                     [savedContacts showOneContactDetails:num];
+                }
+                else if ([selectedOption isEqualToString:@"edit"])          // to edit the name and email of an existing contact
+                {
+                    InputCollector *editString = [[InputCollector alloc] init];
+                    NSString *inputNum = [editString inputForPrompt:@"Please enter index of contact to be edited: "];
+                    NSUInteger num = [inputNum intValue];                   // Converting user input to integer
+                    [savedContacts editOneContactDetails:num];
+                    
                 }
                 else if ([selectedOption isEqualToString:@"find"])          // database is searched for string entered by user in name and email field
                 {

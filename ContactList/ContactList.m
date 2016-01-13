@@ -8,6 +8,7 @@
 
 #import "ContactList.h"
 #import "Contact.h"
+#import "InputCollector.h"
 
 @implementation ContactList
 
@@ -71,6 +72,20 @@
 }
 
 
+-(void)editOneContactDetails:(NSUInteger)position {
+    NSUInteger count = [self.storedContactList count];
+    if (position < count) {
+        Contact *OneContact = self.storedContactList[position];
+        NSLog(@"Current Name: %@", OneContact.name);
+        NSString *newNameString = [[[InputCollector alloc] init] inputForPrompt:@"Enter New Name: "];
+        OneContact.name = newNameString;
+        NSLog(@"Current Email: %@", OneContact.emailAddress);
+        NSString *newEmailString = [[[InputCollector alloc] init] inputForPrompt:@"Enter New Email: "];
+        OneContact.emailAddress = newEmailString;
+    } else {
+        NSLog(@"Index value not found in database");
+    }
+}
 
 
 

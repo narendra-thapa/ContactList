@@ -24,4 +24,6 @@
 
 -(BOOL)alreadyExists:(NSString *)existsEmailAddress;                    // checks if new email address entered by user already exists in database
 
+-(void)editOneContactDetails:(NSUInteger)position;                      // displays contact details when requested by user using index from list view for editing
+
 @end
